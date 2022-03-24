@@ -1,6 +1,7 @@
 import { v4 as uuid } from "uuid";
 
 let users = [];
+let clients = [];
 
 export const getUsers = (req, res) => {
   res.send(users);
@@ -31,4 +32,15 @@ export const createUser = (req, res) => {
 
   users.push({ ...user, id: uuid() });
   res.send("User created successfully..");
+};
+
+export const createClient = (req, res) => {
+  const client = req.body;
+
+  clients.push({ ...client, id: uuid() });
+  res.send("Contact send successfully..");
+};
+
+export const getClient = (req, res) => {
+  res.send(clients);
 };
